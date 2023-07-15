@@ -20,7 +20,7 @@ import pe.com.fitfuel.dto.CitaDTO;
 import pe.com.fitfuel.services.CitaService;
 
 @RestController
-@RequestMapping("/api/v1/cita")
+@RequestMapping("/cita")
 public class CitaController {
     @Autowired
     private CitaService citaService;

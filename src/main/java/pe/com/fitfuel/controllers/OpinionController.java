@@ -20,7 +20,7 @@ import pe.com.fitfuel.dto.OpinionDTO;
 import pe.com.fitfuel.services.OpinionService;
 
 @RestController
-@RequestMapping("/api/v1/opinion")
+@RequestMapping("/opinion")
 public class OpinionController {
     @Autowired
     private OpinionService opinionService;

@@ -20,7 +20,7 @@ import pe.com.fitfuel.dto.NutricionistaDTO;
 import pe.com.fitfuel.services.NutricionistaService;
 
 @RestController
-@RequestMapping("/api/v1/nutricionista")
+@RequestMapping("/nutricionista")
 public class NutricionistaController {
     @Autowired
     private NutricionistaService nutricionistaService;
@@ -47,7 +47,7 @@ public class NutricionistaController {
             return ResponseEntity.badRequest().build();
         }
         NutricionistaDTO nuevoNutricionista = nutricionistaService.add(nutricionistaDTO);
-        return ResponseEntity.created(URI.create("/api/v1/nutricionista/" + nuevoNutricionista.getNutricionista_id())).body(nuevoNutricionista);
+        return ResponseEntity.created(URI.create("/api/v1/nutricionista/" + nuevoNutricionista.getNutricionistaId())).body(nuevoNutricionista);
     }
     @PutMapping("/{id}/edit")
     public ResponseEntity<NutricionistaDTO> updateNutricionista(@PathVariable Long id, @RequestBody @Valid NutricionistaDTO nutricionistaDTO, BindingResult result){
