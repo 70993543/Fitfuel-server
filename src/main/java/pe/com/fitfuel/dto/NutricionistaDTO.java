@@ -22,5 +22,24 @@ public class NutricionistaDTO {
     private String linkedin;
     private ObjetivoDTO objetivo;
     private PrecioDTO precio;
+    
+    public NutricionistaDTO(String nombre, String apellido, String imagen, String videoUrl, String especialidad,
+            String descripcion, String whatsapp, String facebook, String instagram, String linkedin,
+            ObjetivoDTO objetivo, PrecioDTO precio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.imagen = imagen;
+        this.videoUrl = videoUrl;
+        this.especialidad = especialidad;
+        this.descripcion = descripcion;
+        this.whatsapp = whatsapp;
+        this.facebook = facebook;
+        this.instagram = instagram;
+        this.linkedin = linkedin;
+        this.objetivo = objetivo;
+        this.precio = precio;
+    }
+
+    
 }
 

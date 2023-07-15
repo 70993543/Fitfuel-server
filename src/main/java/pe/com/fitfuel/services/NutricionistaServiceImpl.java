@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import pe.com.fitfuel.dto.NutricionistaDTO;
 import pe.com.fitfuel.entities.Nutricionista;
+import pe.com.fitfuel.factories.NutricionistaFactory;
 import pe.com.fitfuel.repositories.NutricionistaRepository;
 
 @Service
@@ -19,6 +20,11 @@ public class NutricionistaServiceImpl implements NutricionistaService{
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private NutricionistaFactory nutricionistaFactory;
+
+
 
     @Override
     public List<NutricionistaDTO> findAll() {
@@ -34,7 +40,8 @@ public class NutricionistaServiceImpl implements NutricionistaService{
 
     @Override
     public NutricionistaDTO add(NutricionistaDTO nutricionistaDTO) {
-        Nutricionista nutricionista = modelMapper.map(nutricionistaDTO, Nutricionista.class);
+        NutricionistaDTO nuevoNutricionista = nutricionistaFactory.crearNutricionista(nutricionistaDTO.getNombre(), nutricionistaDTO.getApellido(), nutricionistaDTO.getImagen(), nutricionistaDTO.getVideoUrl(), nutricionistaDTO.getEspecialidad(), nutricionistaDTO.getDescripcion(), nutricionistaDTO.getWhatsapp(), nutricionistaDTO.getFacebook(), nutricionistaDTO.getInstagram(), nutricionistaDTO.getLinkedin(), nutricionistaDTO.getObjetivo(), nutricionistaDTO.getPrecio());
+        Nutricionista nutricionista = modelMapper.map(nuevoNutricionista, Nutricionista.class);
         Nutricionista nutricionistaGuardado = nutricionistaRepository.save(nutricionista);
         return modelMapper.map(nutricionistaGuardado, NutricionistaDTO.class);
     }
